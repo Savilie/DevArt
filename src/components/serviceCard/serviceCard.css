@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&display=swap');
+@import url('../../styles/fonts.css');
+
+.service-card {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 533px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.service-card__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  border-radius: 22px;
+  z-index: 1;
+}
+
+.service-card__content {
+  position: relative;
+  width: 50%;
+  padding: 40px;
+  z-index: 2;
+  display: grid;
+}
+
+.card-h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(30px, 3.26vw, 47px);
+  font-weight: 600; /* Extralight */
+  margin-bottom: clamp(30px, 4.5vw, 65px);
+  color: #2d2d2d;
+  line-height: 1.2;
+}
+
+/* Стиль для выделенного текста в заголовке */
+
+.card-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3.2vw, 47px);
+  line-height: 1.1;
+  color: #000000;
+  margin-bottom: clamp(40px, 5vw, 72px);
+  max-width: 587px;
+  font-weight: 200;
+  margin-bottom: 0;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.card-counter {
+  font-family: 'Nikukyu', sans-serif;
+  font-size: clamp(45px, 6vw, 74px);
+  font-weight: 400;
+  color: #000000;
+  align-self: center;
+  margin-top: auto;
+  line-height: 1;
+  text-align: center;
+}
+
+.service-card__image {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.service-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+  display: block;
+}
+
+.purple {
+  background: linear-gradient(90deg, #4B5FE4 0%, #9357E1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; 
+}
+
+/* Адаптивность для планшетов */
+@media screen and (max-width: 992px) {
+  .service-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .service-card__content, 
+  .service-card__image {
+    width: 100%;
+  }
+  
+  .service-card__image {
+    min-height: 300px;
+  }
+  
+  .service-card__image img {
+    border-radius: 0;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+  }
+  
+  .card-counter {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 576px) {
+  .service-card__content {
+    padding: 25px;
+  }
+  
+  .service-card__image {
+    min-height: 250px;
+  }
+  
+  .card-text {
+    margin-bottom: 30px;
+  }
+  
+  .card-h3 {
+    font-size: clamp(24px, 5vw, 30px);
+  }
+}

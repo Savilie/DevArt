@@ -1,0 +1,128 @@
+@import url('../../styles/fonts.css');
+
+.services {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    position: relative;
+    color: #2d2d2d;
+}
+
+.services-header {
+    position: relative;
+    z-index: 101;
+}
+
+.services__inner {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* align-items: center; */
+    min-height: 80px;
+    padding-left: 70px;
+    padding-right: 70px;
+    /* position: relative; */
+}
+
+.services-h2 {
+    margin-bottom: clamp(40px, 7.64vw, 110px);
+    font-family: 'Helvetica Neue Cyr', sans-serif;
+    font-size: clamp(30px, 3.26vw, 47px);
+    font-weight: 700;
+    max-width: 870px;
+    margin-top: clamp(60px, 11.11vw, 160px);
+}
+
+/* Стили для блока описания услуг */
+
+.services-description {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 0 22px;
+    margin-bottom: 145px;
+}
+
+.services-description__item {
+    max-width: 510px;
+}
+
+
+.services-description h3 {
+    font-weight: 600;
+    font-size: clamp(22px, 3.26vw, 28px);
+    margin-bottom: 33px;
+    text-transform: capitalize;
+}
+
+.services-description p {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    text-transform: none;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+
+/* page customization */
+
+.ellipse-beauty {
+    position: absolute;
+    left: min(20vw, 420px);
+    top: -50px;
+    z-index: -2;
+}
+.ellipse-beauty-second {
+    z-index: -2;
+    position: absolute;
+    right: max(2vw, -20px);
+    transform: rotate(140deg);
+    opacity: 0.85;
+    top: min(450px);
+}
+
+/* Базовая сетка точек */
+.dots-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;  /* Базовый z-index */
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle, #E8EDF2 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0;
+}
+
+/* Для элементов, которые должны быть под сеткой точек */
+.under-dots {
+  position: relative;
+  z-index: -4; /* Располагаем под сеткой */
+}
+
+/* Для создания эффекта маски на элементах, перекрывающих сетку */
+.mask-dots {
+  position: relative;
+  z-index: 0; /* Над сеткой */
+  background-color: white; /* Должен быть непрозрачный фон */
+}
+
+/* Альтернативный вариант - использование псевдоэлемента для создания маски */
+.with-dots-mask::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, #E8EDF2 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0;
+  z-index: -1; /* Выше основного контента */
+  pointer-events: none;
+  mix-blend-mode: lighten; /* Это важно для эффекта маски */
+}

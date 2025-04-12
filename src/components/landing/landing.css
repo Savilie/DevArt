@@ -1,0 +1,341 @@
+.landing {
+    min-height: 100dvh;
+}
+
+.landing__inner {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.landing-main {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Добавляем второе созвездие - Малую Медведицу */
+.constellations {
+    display: block;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+
+.ursa-minor-container {
+    position: absolute;
+    width: 300px;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
+    display: inline-block;
+    scale: 0.7;
+    top: -30px;
+}
+
+.constellation-container {
+    position: absolute;
+    width: 370px;
+    height: 240px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
+    display: inline-block;
+    left: 460px;
+    top: -60px;
+    scale: 0.8;
+}
+
+
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.8);
+    z-index: 20; /* Звезды всегда выше линий */
+    cursor: pointer;
+}
+
+/* Звезды Малой Медведицы */
+.ursa-minor-star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.8);
+    z-index: 20;
+    cursor: pointer;
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+/* Позиции звезд первого созвездия */
+.star-1 { width: 7px; height: 7px; top: 80px; left: 40px; }
+.star-2 { top: 190px; left: 140px; } 
+.star-3 { top: 120px; left: 190px; }
+.star-4 { width: 7px; height: 7px; top: 50px; left: 270px; }
+.star-5 { width: 7px; height: 7px; top: 160px; left: 340px; }
+
+/* Полярная звезда немного крупнее */
+.ursa-minor-star-1 {
+    width: 7px;
+    height: 7px;
+    top: 30px;
+    left: 40px;
+    animation-delay: 0.2s;
+}
+
+/* Остальные звезды созвездия Малой Медведицы в форме ковша */
+.ursa-minor-star-2 { top: 90px; left: 40px; animation-delay: 0.4s; }
+.ursa-minor-star-3 { width: 7px; height: 7px; top: 130px; left: 120px; animation-delay: 0.6s; }
+.ursa-minor-star-4 { top: 80px; left: 170px; animation-delay: 0.1s; }
+.ursa-minor-star-5 { width: 7px; height: 7px; top: 110px; left: 230px; animation-delay: 0.5s; }
+.ursa-minor-star-6 { top: 150px; left: 260px; animation-delay: 0.3s; }
+
+/* Единый стиль для линий созвездия */
+.constellation-line {
+    position: absolute;
+    height: 1.5px;
+    background-color: rgba(255, 255, 255, 0.35);
+    opacity: 0;
+    transition: opacity 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+    pointer-events: none;
+    transform-origin: 0 0;
+    border-radius: 0.75px;
+}
+
+/* Класс для активации линий */
+.constellation-line.active {
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Активация всех линий при наведении на контейнер */
+.constellation-container.active .constellation-line {
+    opacity: 1;
+}
+
+/* Эффект свечения для активных линий */
+@keyframes lineGlow {
+    0% { background-color: rgba(255, 255, 255, 0.25); box-shadow: 0 0 2px rgba(255, 255, 255, 0.15); }
+    50% { background-color: rgba(255, 255, 255, 0.45); box-shadow: 0 0 5px rgba(255, 255, 255, 0.35); }
+    100% { background-color: rgba(255, 255, 255, 0.25); box-shadow: 0 0 2px rgba(255, 255, 255, 0.15); }
+}
+
+.constellation-line.active {
+    animation: lineGlow 4s infinite ease-in-out;
+}
+
+/* Добавим анимацию мерцания для звезд */
+@keyframes twinkle {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.star {
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+.star-1 { animation-delay: 0s; }
+.star-2 { animation-delay: 0.3s; }
+.star-3 { animation-delay: 0.6s; }
+.star-4 { animation-delay: 0.1s; }
+.star-5 { animation-delay: 0.8s; }
+
+
+/* Landing main */
+.landing-content {
+    position: relative;
+    top: -25px;
+    width: 630px;
+    height: 250px;
+    line-height: 1.2;
+}
+.landing-text {
+    line-height: 1.2;
+    font-size: clamp(44px, 5vw, 77px);
+    opacity: 0.5;
+    position: absolute;
+    width: inherit;
+}
+
+.landing-text-highlight {
+    opacity: 1;
+    line-height: 1.2;
+    position: absolute;
+    font-size: clamp(44px, 5vw, 77px);
+    width: inherit;
+    -webkit-mask-image: radial-gradient(circle 0px at 0% 0%, black 0%, transparent 100%);
+    mask-image: radial-gradient(circle 0px at 0% 0%, black 0%, transparent 100%);
+}
+
+.purple-text {
+    font-size: inherit;
+    background: linear-gradient(90deg, #C9BAFF 0%, #9B7AFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-glow {
+    opacity: 1;
+}
+
+.landing-image {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+}
+
+.landing-image img {
+    object-fit: contain;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+
+.divider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    z-index: 100;
+    padding: 0;
+    top: -50px;
+    /* transform: translateX(-50%); */
+}
+
+.divider-line {
+    position: absolute;
+    height: 1px;
+    width: 100vw;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0.32;
+    transition: opacity 0.3s ease;
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 20%,
+        white 35%,
+        white 65%,
+        transparent 80%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 20%,
+        white 35%,
+        white 65%,
+        transparent 80%,
+        transparent 100%
+    );
+}
+
+.divider-line-highlight {
+    position: absolute;
+    height: 1px;
+    width: 100vw;
+    background: rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.divider-star {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    z-index: 1;
+}
+
+.divider-star-image {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 0.336px rgba(255, 255, 255, 0))
+            drop-shadow(0 0 0.672px rgba(255, 255, 255, 0))
+            drop-shadow(0 0 2.352px rgba(255, 255, 255, 0))
+            drop-shadow(0 0 3px rgba(255, 255, 255, 0))
+            drop-shadow(0 0 5px rgba(255, 255, 255, 0))
+            drop-shadow(0 0 10px rgba(255, 255, 255, 0));
+}
+
+.divider-star-base,
+.divider-star-highlight {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: drop-shadow(0 0 0.336px rgba(255, 255, 255, 1));
+}
+
+.divider-star-base {
+    opacity: 1;
+}
+
+.divider-star-highlight {
+    opacity: 1;
+    -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, black 0%, transparent 100%);
+    mask-image: radial-gradient(circle 0px at 50% 50%, black 0%, transparent 100%);
+}
+.consultation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    top: -35px;
+}
+.consultation-text {
+    max-width: 600px;
+    margin-top: 0px;
+    z-index: 100;
+}
+
+.consultation-text p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.consultation-button {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.consultation-button:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
