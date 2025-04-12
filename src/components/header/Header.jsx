@@ -1,7 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import './header.css'
+import ModalMenu from "../modalMenu/ModalMenu.jsx";  
 
 const Header = ({ theme }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <div className="container">
@@ -17,7 +20,7 @@ const Header = ({ theme }) => {
               <li className="header-ul__li"><a href="#">Контакты</a></li>
               <li className="header-ul__li"><a href="#">Оборудование</a></li>
               <li>
-              <button class="btn-burger">
+              <button class="btn-burger" onClick={() => {setIsModalOpen(true)}}>
                 <div class="burger-logo">
                   <div class="burger-logo-line"></div>
                   <div class="burger-logo-line"></div>
@@ -28,6 +31,11 @@ const Header = ({ theme }) => {
           </nav>
         </div>
       </div>
+
+      <ModalMenu 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   )
 }

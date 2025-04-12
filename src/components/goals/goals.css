@@ -61,7 +61,8 @@
 
 .text-description {
     max-width: 420px;
-    font-family: 'PPNeueMachina-Ultrabold', sans-serif;
+    font-family: 'PPNeueMachina', sans-serif;
+    font-weight: 900;
     font-size: 22px;
 }
 

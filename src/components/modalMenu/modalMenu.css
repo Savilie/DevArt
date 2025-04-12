@@ -1,0 +1,208 @@
+@import url('../../styles/fonts.css');
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        rgba(75, 95, 228, 0.85), 
+        rgba(147, 87, 225, 0.85));
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+
+    font-family: 'PPNeueMachina', sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 32px;
+}
+
+.modal__content {
+    position: relative;
+    top: -5%;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-button-wrapper {
+    padding-top: 15px;
+    padding-left: 70px;
+    padding-right: 70px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal__close {
+    position: absolute;
+    /* top: 100px;
+    right: 70px; */
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, #ccc2ff3b 0%, #a48ff557 100%);
+    position: relative;
+    z-index: 100;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.modal__close::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #E7E3F9 0%, #E9E1FF 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal__close:hover {
+    background: linear-gradient(0deg, #ccc2ff60 0%, #a48ff580 100%);
+    box-shadow: 0 5px 15px rgba(204, 194, 255, 0.3);
+}
+
+.modal__close:hover::before {
+    background: linear-gradient(180deg, #E7E3F9 0%, #E9E1FF 100%);
+    opacity: 0.9;
+    padding: 1.5px;
+}
+
+.close-icon {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-icon-line {
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background-color: #E7E3F9;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.close-icon-line:first-child {
+    transform: rotate(45deg);
+}
+
+.close-icon-line:last-child {
+    transform: rotate(-45deg);
+}
+
+/* Анимация при наведении */
+.modal__close:hover .close-icon-line {
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(231, 227, 249, 0.5);
+}
+
+.modal__close:hover .close-icon-line:first-child {
+    transform: rotate(135deg);
+}
+
+.modal__close:hover .close-icon-line:last-child {
+    transform: rotate(-135deg);
+}
+
+/* Анимация при нажатии */
+.modal__close:active {
+    transform: scale(0.95);
+}
+
+.modal__nav {
+    display: flex;
+    gap: 280px;
+}
+
+.modal__nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.modal__link {
+    color: white;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.5s ease forwards;
+    transition: opacity 0.5s cubic-bezier(0.6, 0, 0.2, 1);
+    letter-spacing: 0.02em;
+}
+
+.modal__link:hover {
+    opacity: 1 !important;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 0.6;
+        transform: translateY(0);
+    }
+}
+
+/* Задержка анимации для каждого пункта меню */
+.modal__link:nth-child(1) { animation-delay: 0.1s; }
+.modal__link:nth-child(2) { animation-delay: 0.2s; }
+.modal__link:nth-child(3) { animation-delay: 0.3s; }
+.modal__link:nth-child(4) { animation-delay: 0.4s; }
+.modal__link:nth-child(5) { animation-delay: 0.5s; }
+
+/* Адаптивность */
+@media screen and (max-width: 768px) {
+    .modal__nav {
+        gap: 100px;
+    }
+    
+    .modal__nav-column {
+        gap: 35px;
+    }
+    
+    .modal__link {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal__nav {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .modal__nav-column {
+        gap: 25px;
+    }
+    
+    .modal__link {
+        font-size: 20px;
+    }
+}
