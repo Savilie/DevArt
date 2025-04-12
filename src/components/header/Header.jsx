@@ -1,9 +1,17 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import './header.css'
 import ModalMenu from "../modalMenu/ModalMenu.jsx";  
 
 const Header = ({ theme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [isModalOpen]);
 
   return (
     <>
