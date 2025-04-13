@@ -67,7 +67,9 @@ CUSTOM_APPS = [
     'users',
     'bids',
     'team',
-    'django_cleanup.apps.CleanupConfig'
+    'django_cleanup.apps.CleanupConfig',
+    'cases',
+
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS
@@ -155,3 +157,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # via AbstractBaseUser
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600

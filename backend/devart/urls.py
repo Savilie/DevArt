@@ -16,13 +16,14 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 from users.views import CustomUserAPIView
 from team.views import TeamApiView
 from bids.views import BidAPIView
 from django.conf.urls.static import static
+from cases.views import VideoStreamAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +34,8 @@ urlpatterns = [
     re_path(r'^api/users(/(?P<pk>\d+))?/?$', CustomUserAPIView.as_view(), name='users'),
     re_path(r'^api/team(/(?P<pk>\d+))?/?$', TeamApiView.as_view(), name='users'),
     re_path(r'^api/bids(/(?P<pk>\d+))?/?$', BidAPIView.as_view(), name='users'),
+
+    path('api/videos/<int:pk>/stream/', VideoStreamAPIView.as_view(), name='video-stream'),
 
 ]
 if settings.DEBUG:

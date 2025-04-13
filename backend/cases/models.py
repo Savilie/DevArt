@@ -5,6 +5,4 @@ class Case(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     video_file = models.FileField(upload_to='videos/')
-    thumbnail = models.ImageField(upload_to='thumbnails/', blank=True)
-    duration = models.PositiveIntegerField(help_text="Duration in seconds", default=0)
 
