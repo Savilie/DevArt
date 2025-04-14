@@ -161,24 +161,25 @@
 .landing-content {
     position: relative;
     top: -25px;
-    width: 630px;
+    width: 350px;
     height: 250px;
     line-height: 1.2;
 }
 .landing-text {
     line-height: 1.2;
-    font-size: clamp(44px, 5vw, 77px);
+    font-size: clamp(32px, 5vw, 77px);
     opacity: 0.5;
     position: absolute;
-    width: inherit;
+    width: max-content;
 }
 
 .landing-text-highlight {
     opacity: 1;
     line-height: 1.2;
     position: absolute;
-    font-size: clamp(44px, 5vw, 77px);
-    width: inherit;
+    font-size: clamp(32px, 5vw, 77px);
+    width: max-content;
+
     -webkit-mask-image: radial-gradient(circle 0px at 0% 0%, black 0%, transparent 100%);
     mask-image: radial-gradient(circle 0px at 0% 0%, black 0%, transparent 100%);
 }
@@ -338,4 +339,18 @@
 .consultation-button:hover {
     border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 1000px){
+    .constellation-container {
+        left: 35vw;
+        scale: 0.6;
+    }
+
+    .landing-content {
+        height: 200px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+    }
 }

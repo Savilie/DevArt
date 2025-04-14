@@ -64,6 +64,10 @@
     line-height: 1.4;
 }
 
+@media screen and (max-width: 580px) {
+  
+}
+
 
 /* page customization */
 
@@ -80,6 +84,17 @@
     transform: rotate(140deg);
     opacity: 0.85;
     top: min(450px);
+}
+
+@media screen and (max-width: 1000px) {
+  .ellipse-beauty {
+    width: 80vw;
+  }
+  .ellipse-beauty-second {
+    width: 100vw;
+    right: max(1vw, 50px);
+    top: min(650px);
+  }
 }
 
 /* Базовая сетка точек */

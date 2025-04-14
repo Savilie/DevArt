@@ -1,17 +1,17 @@
-import Header from './components/header/Header'
-import Landing from './components/landing/Landing'
-import Services from './components/services/Services'
-import Goals from './components/goals/Goals'
+import Main from './pages/main/Main.jsx'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Consultation from './pages/consultation/Consultation.jsx'
 
 const App = () => {
   
   return (
     <>
-      <div className='background-blur'></div>
-      <Header theme={true}/>
-      <Landing/>
-      <Services/>
-      <Goals/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/consultation" element={<Consultation/>}/>
+      </Routes>
+    </Router>
     </>
   )
 }
