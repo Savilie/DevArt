@@ -1,0 +1,83 @@
+# docker-compose.yml
+
+services:
+  db:
+    image: mysql:latest
+    container_name: "db_cont"
+    env_file:
+      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    volumes:
+      - my_mysql_volume:/var/lib/mysql
+
+  django_app:
+    image: backend_app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: django_cont
+    restart: always
+    env_file:
+      - backend/.env
+    volumes:
+      - media_volume:/app/backend/media
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: frontend_cont
+  #   restart: always
+  #   env_file:
+  #     - frontend/.env
+  #   volumes:
+  #     - dist_volume:/app/frontend/dist
+
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nginx
+    container_name: "nginx_cont"
+    restart: always
+    volumes:
+      - media_volume:/app/backend/media
+      - etc-letsencrypt:/etc/letsencrypt
+      - www-html:/var/www/html
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - django_app
+      - frontend
+
+  certbot:
+    image: certbot/certbot:latest
+    container_name: "certbot_cont"
+    env_file:
+      - .env
+    # remove flag "--staging" to make real SSL (not for tests)
+    # command: certonly --webroot --webroot-path=/var/www/html/ --agree-tos --email ${CERTBOT_EMAIL} -d palitrakamnya.ru -d www.palitrakamnya.ru
+    volumes:
+      - etc-letsencrypt:/etc/letsencrypt
+      - www-html:/var/www/html
+    depends_on:
+      - nginx
+
+volumes:
+  my_mysql_volume:
+  media_volume:
+  www-html:
+  etc-letsencrypt:
