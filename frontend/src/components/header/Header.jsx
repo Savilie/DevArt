@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import './header.css'
 import ModalMenu from "../modalMenu/ModalMenu.jsx";  
+import { Link } from "react-router-dom"
 
 const Header = ({ theme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,14 +18,14 @@ const Header = ({ theme }) => {
     <>
       <div className="container">
         <div className={theme ? "header__inner" : "header__inner light"}>
-          <a href="#" className="header-logo">
+          <Link to="/" className="header-logo">
             {/* <img src="ton.png" alt="Logo" /> */}
             <span>DevART</span>
-          </a>
+          </Link>
 
           <nav className="header-nav">
             <ul className="header-ul">
-              <li className="header-ul__li"><a href="#">Портфолио</a></li>
+              <li className="header-ul__li"><Link to="/portfolio">Портфолио</Link></li>
               <li className="header-ul__li"><a href="#">Контакты</a></li>
               <li className="header-ul__li"><a href="#">Оборудование</a></li>
               <li>

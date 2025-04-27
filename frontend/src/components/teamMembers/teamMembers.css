@@ -1,0 +1,54 @@
+.team-members-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px -15px 20px;
+  position: relative;
+}
+
+/* Индикаторы для мобильного слайдера */
+.team-slider-indicators {
+  display: none;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 5px;
+}
+
+.indicator.active {
+  background-color: white;
+}
+
+/* Адаптивность для планшетов */
+@media screen and (max-width: 1024px) {
+  .team-members-container {
+    justify-content: space-around;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 768px) {
+  .team-members-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 40px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  .team-members-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  
+  .team-slider-indicators {
+    display: flex;
+  }
+} 

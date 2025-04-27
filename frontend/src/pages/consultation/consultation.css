@@ -97,16 +97,20 @@
     background-color: transparent;
     outline: none;
     font-size: 16px;
+    padding-left: 20px;
 }
 
 .form-group input::placeholder {
     color: #747474;
-    padding-left: 20px;
     opacity: 1;
 }
 
-.form-group input[id="description"]::placeholder {
+.form-group input[id="description"] {
     padding-left: 5px;
+}
+
+.form-group input[type="file"] {
+    color: #2d2d2d;
 }
 
 .file-upload {
@@ -132,9 +136,15 @@
     padding-right: 30px;
 }
 
+.file-selected {
+    color: #2d2d2d;
+}
+
 .file-icon {
     margin-left: 10px;
     display: inline-flex;
+    width: 20px;
+    height: auto;
 }
 
 .hidden-file-input {
@@ -144,6 +154,7 @@
 .checkbox-group {
     display: flex;
     align-items: center;
+    text-align: center;
     gap: 8px;
     margin-bottom: 30px; /* Gap between agreement and button */
 }
@@ -173,7 +184,7 @@
     position: absolute;
     font-size: 14px;
     left: 4px;
-    top: 0px;
+    top: 2px;
 }
 
 .checkbox-group label {
@@ -185,7 +196,7 @@
 }
 
 .submit-btn {
-    background-color: #7a65fa;
+    background: linear-gradient(90deg, #465AD9 0%, #A260FC 50%, #6E5FF0 100%);
     color: white;
     border: none;
     border-radius: 50px;
@@ -193,11 +204,11 @@
     font-size: 16px;
     cursor: pointer;
     width: fit-content;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
-    background-color: #6753e8;
+    opacity: 0.85;
 }
 
 @media (max-width: 768px) {

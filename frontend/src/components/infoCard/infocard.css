@@ -1,0 +1,58 @@
+.info-card {
+    background: url("../../../public/card-decoration.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0a061f50;
+    
+    border-radius: 14px;
+    max-width: 32%;
+    height: 220px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 18px;
+}
+
+.info-card__img {
+    max-width: max-content;
+}
+
+.info-card__text {
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: clamp(14px, 1vw, 20px);
+    text-transform: none;
+}
+
+/* Стили для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .info-card {
+        width: 100%; /* Увеличиваем ширину до 100% от родительского контейнера */
+        max-width: none;
+        margin-bottom: 20px;
+        min-height: 200px;
+        height: auto; /* Позволяем карточке расширяться по высоте в зависимости от контента */
+        padding: 25px; /* Увеличиваем отступы для лучшей читаемости */
+    }
+    
+    .info-card__text {
+        font-size: 14px;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* Показываем только 6 строк */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Добавляем многоточие */
+    }
+}
+
+/* Для устройств с очень маленькими экранами */
+@media screen and (max-width: 380px) {
+    .info-card {
+        padding: 20px;
+    }
+    
+    .info-card__text {
+        font-size: 15px;
+    }
+}   

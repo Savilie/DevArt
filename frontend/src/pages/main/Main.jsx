@@ -11,7 +11,7 @@ const Main = () => {
       <Landing/>
       <Services/>
       <Goals/>
-    </>
+    </> 
   )
 }
 

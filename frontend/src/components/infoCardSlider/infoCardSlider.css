@@ -1,0 +1,39 @@
+.info-card-slider {
+    width: 100%;
+    padding: 10px 5px 60px;
+    position: relative;
+}
+
+.info-swiper {
+    width: 100%;
+    overflow: visible;
+}
+
+.info-swiper .swiper-pagination {
+    bottom: -30px;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.info-swiper .swiper-pagination-bullet {
+    background: #6E5FF0;
+    opacity: 0.5;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+}
+
+.info-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.info-swiper .info-card {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 25px;
+} 

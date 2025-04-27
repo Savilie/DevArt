@@ -28,10 +28,10 @@
 .services-h2 {
     margin-bottom: clamp(40px, 7.64vw, 110px);
     font-family: 'Helvetica Neue Cyr', sans-serif;
-    font-size: clamp(30px, 3.26vw, 47px);
+    font-size: clamp(28px, 3.26vw, 47px);
     font-weight: 700;
     max-width: 870px;
-    margin-top: clamp(60px, 11.11vw, 160px);
+    margin-top: clamp(30px, 11.11vw, 160px);
 }
 
 /* Стили для блока описания услуг */
