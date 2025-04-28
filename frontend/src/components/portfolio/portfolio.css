@@ -1,0 +1,77 @@
+@import url('../../styles/fonts.css');
+
+.portfolio-inner {
+    padding: 0 70px;
+    position: relative;
+    z-index: 3;
+}
+.portfolio-page{
+    background: linear-gradient(180deg, #0D0E28, #231031);
+    position:sticky
+}
+
+.portfolio-page h2 {
+    font-family: 'Helvetica Neue Cyr';
+    font-size: clamp(28px, 3.26vw, 47px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    margin-top: clamp(20px, 4vw, 60px);
+    margin-bottom: clamp(20px, 4vw, 60px);
+}
+
+.portfolio-big-text {
+    max-width: 640px;
+}
+
+.portfolio-info-cards {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Глобальные исправления для предотвращения overflow */
+.portfolio-section {
+    width: 100%;
+    max-width: 100%;
+    /* overflow-x: hidden; */
+}
+
+.portfolio-team-members {
+    margin-top: clamp(60px, 11vw, 140px);
+    margin-bottom: clamp(30px, 11vw, 140px);
+    /* overflow-x: hidden; */
+}
+
+/* Для мобильных устройств */
+@media screen and (max-width: 768px) {
+    /* Исправления для мобильных */
+    body, html {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .portfolio-section,
+    .portfolio-section * {
+        max-width: 100%;
+    }
+    
+    /* Исправляем контейнер слайдера на мобильных */
+    .info-card-slider {
+        width: 100%;
+        padding: 10px 0 50px;
+        margin: 0;
+    }
+    
+    /* Полная ширина для карточки в слайдере */
+    .info-swiper .info-card {
+        width: 100%;
+        max-width: calc(100% - 20px); /* Немного меньше полной ширины для отступов */
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+}
