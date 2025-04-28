@@ -16,7 +16,7 @@ const Header = ({ theme }) => {
 
   return (
     <>
-      <div className="container228">
+      <div className="container">
         <div className={theme ? "header__inner" : "header__inner light"}>
           <Link to="/" className="header-logo">
             {/* <img src="ton.png" alt="Logo" /> */}

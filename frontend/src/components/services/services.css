@@ -75,6 +75,7 @@
     position: absolute;
     left: min(20vw, 420px);
     top: -50px;
+    pointer-events: none;
     z-index: -2;
 }
 .ellipse-beauty-second {
@@ -84,6 +85,7 @@
     transform: rotate(140deg);
     opacity: 0.85;
     top: min(450px);
+    pointer-events: none;
 }
 
 @media screen and (max-width: 1000px) {

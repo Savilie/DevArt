@@ -400,7 +400,8 @@ const Landing = () => {
 
     return (
         <section className='landing'>
-                <Header theme={true} />
+
+            <Header theme={true} />
             <div className="container">
                 <div className="landing__inner">
                     <div className="constellations">

@@ -68,7 +68,7 @@ const Portfolio = () => {
 
     return (
         <div className='portfolio-page'>
-            <div className='background-blur'></div>
+
             <Header theme={true} />
             <div className="container">
                 <div className="portfolio-inner">
