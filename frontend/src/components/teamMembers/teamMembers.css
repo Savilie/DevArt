@@ -1,9 +1,18 @@
 .team-members-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 40px -15px 20px;
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 карточки в ряд */
+  gap: 24px; /* Небольшой отступ между карточками */
+  margin: 40px 0 20px 0;
+}
+
+.team-member-card {
+  width: 100%;
+  /* Остальные стили карточки */
+}
+
+/* Лесенка: четные карточки чуть выше */
+.team-member-card:nth-child(odd) {
+  margin-top: 80px; /* Отрицательный отступ поднимает карточку вверх */
 }
 
 /* Индикаторы для мобильного слайдера */
@@ -50,5 +59,40 @@
   
   .team-slider-indicators {
     display: flex;
+  }
+
+  .team-member-card:nth-child(odd) {
+    margin-top: 20px; /* Отрицательный отступ поднимает карточку вверх */
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .team-members-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 40px 0 20px 0;
+  }
+  .team-member-card {
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .team-members-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin: 40px 0 20px 0;
+  }
+  .team-member-card {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* Сдвигаем вторую и четвертую карточки в каждой строке */
+  .team-member-card:nth-child(4n+2),
+  .team-member-card:nth-child(4n+4) {
+    margin-top: 80px;
   }
 } 

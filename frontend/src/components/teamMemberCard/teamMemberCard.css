@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 310px;
-  margin: 0 15px 30px;
+  max-width: 400px;
+  /* margin: 0 15px 30px; */
 }
 
 .team-member-photo {
@@ -29,6 +29,8 @@
 .team-member-info {
   background: url("member_card_decor.png");
   background-color: #262e4f1d;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   border-radius: 12px;
   padding: 32px;

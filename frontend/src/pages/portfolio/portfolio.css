@@ -12,9 +12,12 @@
     font-weight: 700;
     margin-bottom: 16px;
     text-transform: uppercase;
-    max-width: 640px;
     margin-top: clamp(20px, 4vw, 60px);
     margin-bottom: clamp(20px, 4vw, 60px);
+}
+
+.portfolio-big-text {
+    max-width: 640px;
 }
 
 .portfolio-info-cards {
@@ -31,11 +34,13 @@
 .portfolio-section {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .portfolio-team-members {
-    margin-top: clamp(60px, 11vw, 160px);;
+    margin-top: clamp(60px, 11vw, 140px);
+    margin-bottom: clamp(30px, 11vw, 140px);
+    /* overflow-x: hidden; */
 }
 
 /* Для мобильных устройств */

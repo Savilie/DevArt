@@ -1,53 +1,35 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import TeamMemberCard from '../teamMemberCard/TeamMemberCard';
 import './teamMembers.css';
 
-const TeamMembers = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: 'СЕРГЕЙ СУЛАВКО',
-      position: 'Топ-менеджер, основатель компании',
-      photo: 'sulavko.png' // Замените на реальный путь к изображению
-    },
-    {
-      id: 2,
-      name: 'СЕРГЕЙ СУЛАВКО',
-      position: 'Топ-менеджер, основатель компании',
-      photo: 'sulavko.png'
-    },
-    {
-      id: 3,
-      name: 'СЕРГЕЙ СУЛАВКО',
-      position: 'Топ-менеджер, основатель компании',
-      photo: 'sulavko.png'
-    },
-    {
-      id: 4,
-      name: 'СЕРГЕЙ СУЛАВКО',
-      position: 'Топ-менеджер, основатель компании',
-      photo: 'sulavko.png'
-    }
-  ];
+const TeamMembers = ({ teamMembers }) => {
+  const isDesktopSwiper = teamMembers.length > 4;
 
   return (
-    <div className="team-members-container">
-      {teamMembers.map(member => (
-        <TeamMemberCard 
-          key={member.id}
-          photo={member.photo} 
-          name={member.name} 
-          position={member.position} 
-        />
-      ))}
-      
-      {/* Индикаторы слайдера (точки) для мобильной версии */}
-      <div className="team-slider-indicators">
-        <span className="indicator active"></span>
-        <span className="indicator"></span>
-        <span className="indicator"></span>
-      </div>
-    </div>
+    <section>
+      <h2 className="team-title">НАША КОМАНДА</h2>
+      <Swiper
+        modules={[Pagination]}
+        spaceBetween={24}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        breakpoints={{
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: isDesktopSwiper ? 4 : teamMembers.length }
+        }}
+        style={{ paddingBottom: '40px' }}
+      >
+        {teamMembers.map((member, idx) => (
+          <SwiperSlide key={member.id || idx}>
+            <TeamMemberCard {...member} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
   );
 };
 

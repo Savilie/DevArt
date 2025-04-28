@@ -3,6 +3,7 @@ import InfoCard from '../../components/infoCard/InfoCard';
 import Header from '../../components/header/Header';
 import InfoCardSlider from '../../components/infoCardSlider/InfoCardSlider';
 import TeamMembers from '../../components/teamMembers/TeamMembers';
+import Cases from '../../components/Cases/Cases';
 import './portfolio.css';
 
 const Portfolio = () => {
@@ -32,6 +33,39 @@ const Portfolio = () => {
         }
     ];
 
+    const teamMembers = [
+        {
+            id: 1,
+            name: 'СЕРГЕЙ СУЛАВКО',
+            position: 'Топ-менеджер, основатель компании',
+            photo: 'sulavko.png'
+        },
+        {
+            id: 2,
+            name: 'СЕРГЕЙ СУЛАВКО',
+            position: 'Топ-менеджер, основатель компании',
+            photo: 'sulavko.png'
+        },
+        {
+            id: 3,
+            name: 'СЕРГЕЙ СУЛАВКО',
+            position: 'Топ-менеджер, основатель компании',
+            photo: 'sulavko.png'
+        },
+        {
+            id: 4,
+            name: 'СЕРГЕЙ СУЛАВКО',
+            position: 'Топ-менеджер, основатель компании',
+            photo: 'sulavko.png'
+        },
+    ]
+
+    const cases = [
+        { id: 1, src: "https://www.youtube.com/watch?v=vjBrN18wiuE", title: "Кейс 1" },
+        { id: 2, src: "https://www.youtube.com/watch?v=vjBrN18wiuE", title: "Кейс 2" },
+        { id: 3, src: "https://www.youtube.com/watch?v=vjBrN18wiuE", title: "Кейс 3" },
+      ];
+
     return (
         <div className='portfolio-page'>
             <div className='background-blur'></div>
@@ -55,11 +89,13 @@ const Portfolio = () => {
 
 
                     <div className="portfolio-team-members">
-                        <h2 className='portfolio-team-big-text'>
-                            Наша команда
-                        </h2>
+                        <div className="portfolio-team-members-cards">
+                            <TeamMembers teamMembers={teamMembers}/>
+                        </div>
+                    </div>
 
-                        <TeamMembers/>
+                    <div className="portfolio-cases">
+                        <Cases cases={cases}/>
                     </div>
                 </div>
             </div>
